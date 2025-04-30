@@ -499,6 +499,9 @@ public partial class MainWindowViewModel : ObservableObject
             return;
         }
 
+        // Trim leading slash if present, as it's meant to be relative to the git repository
+        FilePath = FilePath.TrimStart('/');
+
         IsSearching = true;
         IsLocating = false; // Ensure IsLocating is reset when starting a search
         IsProcessingCommand = true; // Set to true when starting a command
